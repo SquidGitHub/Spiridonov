@@ -19,6 +19,7 @@ type
     Button5: TButton;
     Button6: TButton;
     Button7: TButton;
+    Button8: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
     Edit3: TEdit;
@@ -34,6 +35,7 @@ type
     procedure Button5Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
     procedure Edit1Change(Sender: TObject);
   private
 
@@ -45,6 +47,7 @@ var
   Form1: TForm1;
 
 implementation
+uses unit2;
 
 {$R *.lfm}
 
@@ -137,6 +140,22 @@ begin
   s:=a*b;
   Edit3.Text:=FloatToStr(s);
   end;
+  if RadioButton4.checked then
+  begin
+  Edit3.Visible:=True;
+  a:= StrToFloat(Edit1.Text);
+  b:= StrToFloat(Edit2.Text);
+  s:=a/b;
+  Edit3.Text:=FloatToStr(s);
+  end;
+  if RadioButton5.checked then
+  begin
+  Edit3.Visible:=True;
+  a:= StrToFloat(Edit1.Text);
+  b:= StrToFloat(Edit2.Text);
+  s:=(a*b)/100;
+  Edit3.Text:=FloatToStr(s);
+  end;
   end;
 
 procedure TForm1.Button7Click(Sender: TObject);
@@ -152,6 +171,11 @@ begin
   RadioButton3.checked:=false;
   RadioButton4.checked:=false;
   RadioButton5.checked:=false;
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);
+begin
+  unit2.Form2.Show;
 end;
 
 procedure TForm1.Edit1Change(Sender: TObject);
